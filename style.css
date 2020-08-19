@@ -1,13 +1,11 @@
 * {
   margin: 0;
-  paddiing: 0;
+  padding: 0;
 }
 :root {
   --Desaturated-Red: hsl(0, 36%, 70%);
   --Soft-Red: hsl(0, 93%, 68%);
   --Dark-Grayish-Red: hsl(0, 6%, 24%);
-  /* background-image:linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%)); */
-  /* background-image:linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%)); */
 }
 body {
   font-size: 12.5px;
@@ -53,7 +51,6 @@ main {
 }
 .hero {
   grid-area: 2/3;
-  /* background-image: url(./images/hero-desktop.jpg); */
   width: 100%;
   height: inherit;
   background-size: cover;
@@ -86,7 +83,10 @@ h2 {
   flex-direction: row;
   position: relative;
 }
-.info-container input {
+.form-control {
+  width: 100%;
+}
+.form-control input {
   box-sizing: border-box;
   width: 100%;
   border: 1px solid var(--Desaturated-Red);
@@ -98,53 +98,65 @@ h2 {
   font-family: "Josefin Sans", sans-serif;
   color: var(--Dark-Grayish-Red);
 }
-::placeholder {
+input::placeholder {
   color: rgba(206, 151, 151, 0.5);
   opacity: 0.8;
 }
 
-.info-container button {
+button {
   position: absolute;
   right: 0;
-  width: 70px;
+  width: 85px;
   background-image: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
   border: none;
   border-radius: 50px;
   height: 45px;
   cursor: pointer;
   outline-style: none;
-  box-shadow: 0 1px 2px rgba(206, 151, 151, 0.07),
-    0 2px 4px rgba(206, 151, 151, 0.07), 0 4px 8px rgba(206, 151, 151, 0.07),
-    0 8px 16px rgba(206, 151, 151, 0.07), 0 16px 32px rgba(206, 151, 151, 0.07),
-    0 32px 64px rgba(206, 151, 151, 0.07);
+  box-shadow: 0px 15px 31px 4px rgba(206, 151, 151, 0.7);
 }
-.info-container button:hover {
-  /* background-image: linear-gradient(135deg, hsl(0, 57%, 95%), hsl(0, 78%, 91%)); */
+button:hover {
   background-image: linear-gradient(
     135deg,
     hsla(0, 75%, 92%, 0.817),
     hsla(0, 67%, 76%, 0.639)
   );
 }
-
-/* error display */
-.info-container label {
-  padding: 5px 0 0 20px;
-  color: var(--Soft-Red);
-  display: none;
-}
 .error-box {
   position: absolute;
   display: flex;
   align-items: center;
+  top: 0;
   right: 0;
   height: 40px;
   width: 30%;
 }
-.error-box img {
-  display: none;
+.form-control img {
+  visibility: hidden;
 }
-.info-container input {
+.form-control small {
+  padding: 5px 0 0 20px;
+  color: var(--Soft-Red);
+  visibility: hidden;
+}
+
+/* error display */
+.form-control.error small {
+  visibility: visible;
+}
+.form-control.error img {
+  visibility: visible;
+}
+.form-control.error input {
   border: 1.5px solid var(--Soft-Red);
 }
 /* termina css de error */
+
+/* mensaje de exito */
+.form-control.success input {
+  border: 1px solid var(--Desaturated-Red);
+}
+.form-control.success small {
+  visibility: visible;
+  color: rgb(111, 184, 111);
+}

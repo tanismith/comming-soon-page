@@ -16,7 +16,7 @@
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="responsive.css">
-    <title>Frontend Mentor | Base Apparel coming soon page</title>
+    <title>Base Apparel coming soon page</title>
   </head>
   <body>
     <main>
@@ -35,12 +35,14 @@
           fashion store. Add your email below to stay up-to-date with announcements
           and our launch deals.
         </p>
-        <div class="submit-form">
-          <input id="email" type="email" placeholder="Email Address" pattern=".+@gmail.com" size="30" required >
-          <div class="error-box"><img src="./images/icon-error.svg" alt=""></div>
+        <form id="form" class="submit-form" name="form1"  enctype="text/plain">
+          <div class="form-control">
+            <input id="email"  placeholder="Email Address" name="email"  size="30" >
+            <div class="error-box"><img src="./images/icon-error.svg" alt=""></div>
+            <small>Error message</small>
+          </div>
           <button type="submit"><img src="./images/icon-arrow.svg" alt="submit-icon"></button>
-        </div>
-        <label for="email">Please provide a valid email</label>
+        </form>
       </div>
       <div class="hero">
         <img src="./images/hero-desktop.jpg" alt="hero">
@@ -54,5 +56,6 @@
         >. Coded by <a href="#">Tani</a>.
       </p>
     </footer> -->
+    <script src="./main.js"></script>
   </body>
 </html>
